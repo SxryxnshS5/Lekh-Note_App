@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "74838967499",
+    "project_id": "lekh-3caf9",
+    "storage_bucket": "lekh-3caf9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74838967499:android:e0b322493b565fbe78474e",
+        "android_client_info": {
+          "package_name": "cloud.suryansh.lekh"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzc-0G6JrMSJ2yqpoPFIDK3UbVPqKWPfo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
