@@ -97,7 +97,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 If you have any questions or feedback, please feel free to reach out:
 
 - Email: suryansh.cloud@gmail.com
-- GitHub: [your_username](https://github.com/SxryxnshS5)
+- GitHub: [SxryxnshS5](https://github.com/SxryxnshS5)
 
 ---
 
