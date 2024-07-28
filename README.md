@@ -19,9 +19,12 @@ Lekh is a simple and user-friendly note-taking app built with Flutter and Fireba
 
 ## Screenshots
 
-![Screenshot 1](link_to_screenshot1)
-![Screenshot 2](link_to_screenshot2)
-![Screenshot 3](link_to_screenshot3)
+![Screenshot 1](https://ibb.co/kSQyP36)
+![Screenshot 2](https://ibb.co/jgHHPX5)
+![Screenshot 3](https://ibb.co/34N6SVp)
+![Screenshot 4](https://ibb.co/GnyZKQm)
+![Screenshot 5](https://ibb.co/7RN26T5)
+![Screenshot 6](https://ibb.co/8dk0Xph)
 
 ## Installation
 
