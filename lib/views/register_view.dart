@@ -52,31 +52,54 @@ class _RegisterViewState extends State<RegisterView> {
                   hintText: 'Enter your password',
                 ),
               ),
-              TextButton(onPressed: () async {
-          
-                final email = _email.text;
-                final password = _password.text;
-                try {
-                  // ignore: unused_local_variable
-                  final userCredential = 
-                    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                  email: email, 
-                  password: password
-                );
-      
-                } on FirebaseAuthException catch (e) {
-                  if (e.code=='weak-password') {
-                    print('Weak password');
-                  } else if (e.code=='email-already-in-use') {
-                    print('Email is already in use');
-                  } else if (e.code=='invalid-email') {
-                    print('Invalid email entered');
+              ElevatedButton(
+                onPressed: () async {
+                  final email = _email.text;
+                  final password = _password.text;
+                  try {
+                    // ignore: unused_local_variable
+                    final userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                      email: email,
+                      password: password,
+                    );
+
+                    Navigator.of(context).pushReplacementNamed('/verify_email/');
+                  } on FirebaseAuthException catch (e) {
+                    String message;
+                    switch (e.code) {
+                      case 'invalid-email':
+                        message = 'The email address is badly formatted.';
+                        break;
+                      case 'weak-password':
+                        message = 'The password provided is too weak.';
+                        break;
+                      case 'email-already-in-use':
+                        message = 'The account already exists for that email.';
+                        break;
+                      case 'channel-error':
+                        message = 'Enter your credentials';
+                        break;  
+                      default:
+                        print(e.code);
+                        message = 'An error occurred. Please try again.';
+                        break;
+                    }
+
+                    // Show error message using a snackbar
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(message)),
+                    );
+                  } catch (e) {
+                    // Handle non-Firebase related errors
+                    String message = 'An unexpected error occurred. Please try again.';
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text(message)),
+                    );
                   }
-                };
-              }, 
+                }, 
               child: const Text('Register'),
               ),
-              TextButton(onPressed: (){
+              ElevatedButton(onPressed: (){
                 Navigator.of(context).pushNamedAndRemoveUntil(
                 '/login/', 
                 (route) => false
