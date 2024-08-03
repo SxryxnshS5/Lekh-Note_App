@@ -69,6 +69,18 @@ class _NotesViewState extends State<NotesView> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final TextEditingController _noteController = TextEditingController();
 
+  bool _isNoteEmpty = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _noteController.addListener(() {
+      setState(() {
+        _isNoteEmpty = _noteController.text.isEmpty;
+      });
+    });
+  }
+
   Future<void> _signOut() async {
     try {
       await _auth.signOut();
@@ -175,17 +187,35 @@ class _NotesViewState extends State<NotesView> {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: _noteController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Enter your note',
-              ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    controller: _noteController,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Enter your note',
+                    ),
+                  ),
+                ),
+                if (!_isNoteEmpty)
+                  IconButton(
+                    icon: const Icon(Icons.clear),
+                    onPressed: () {
+                      _noteController.clear();
+                    },
+                  ),
+              ],
             ),
           ),
-          ElevatedButton(
-            onPressed: _addNote,
-            child: const Text('Add Note'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: _addNote,
+                child: const Text('Add Note'),
+              ),
+            ],
           ),
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
