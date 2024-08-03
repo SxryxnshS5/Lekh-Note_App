@@ -54,12 +54,6 @@ https://drive.google.com/drive/folders/1MWe2hdwjBw9gZqZ5oD8uZ3KxwrG-_O1r?usp=sha
    flutter run
    ```
 
-## APK Download
-
-You can download the APK for Lekh from the following link:
-
-[Download Lekh APK](link_to_apk)
-
 ## Usage
 
 1. **Register:**
