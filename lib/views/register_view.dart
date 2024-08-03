@@ -40,7 +40,7 @@ class _RegisterViewState extends State<RegisterView> {
                 autocorrect: false,
                 keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
-                  hintText: 'Enter your email here',
+                  hintText: ' Enter your email here',
                 ),
               ),
               TextField(
@@ -49,7 +49,7 @@ class _RegisterViewState extends State<RegisterView> {
                 enableSuggestions: false,
                 autocorrect: false,
                 decoration: const InputDecoration(
-                  hintText: 'Enter your password',
+                  hintText: ' Enter your password',
                 ),
               ),
               ElevatedButton(
